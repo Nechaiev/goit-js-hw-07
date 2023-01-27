@@ -1,5 +1,4 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
 
 console.log(galleryItems);
 const gallery = document.querySelector('.gallery')
@@ -9,6 +8,7 @@ galleryItems.forEach(element => {
   const galleryLink = document.createElement('a')
   galleryLink.className = 'gallery__link'
   galleryLink.href = element.original
+  
   const galleryImage = document.createElement('img')
   galleryImage.className = 'gallery__image'
   galleryImage.src = element.preview
