@@ -33,11 +33,22 @@ gallery.addEventListener('click', e => {
   const selectedImage = e.target.getAttribute('data-source')
   const instance = basicLightbox.create(`
     <img src="${selectedImage}" width="800" height="600">
-`)
+`, {
+    onClose: () => { 
+    console.log("imgClouse");
+    gallery.removeEventListener('keydown', keydownHandler )
+    },
+    onShow: () => {
+      console.log("imgOpened");
+    }
+  })
+
   instance.show()
-  gallery.addEventListener('keydown', e => {
+  
+  const keydownHandler = e => {
     if (e.key === 'Escape') {
       instance.close()
     }
-  })
+  }
+  gallery.addEventListener('keydown', keydownHandler)
 })
